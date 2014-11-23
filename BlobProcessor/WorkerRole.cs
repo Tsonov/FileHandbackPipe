@@ -14,20 +14,30 @@ namespace BlobProcessor
 {
     public class WorkerRole : RoleEntryPoint
     {
-        private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-        private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
+        private const int minBackoffSeconds = 1;
+        private const int maxBackoffSeconds = 120;
+        private const int exponent = 2;
+        private int backoffWaitSeconds = minBackoffSeconds;
 
         public override void Run()
         {
             Trace.TraceInformation("BlobProcessor is running");
+            while (true)
+            {
+                if (false)
+                {
+                    Trace.WriteLine("BlobProcessor has found work to process, running");
+                    // TODO: Add queue processing. And stuff.
 
-            try
-            {
-                this.RunAsync(this.cancellationTokenSource.Token).Wait();
-            }
-            finally
-            {
-                this.runCompleteEvent.Set();
+                    backoffWaitSeconds = minBackoffSeconds;
+                    Trace.WriteLine(string.Format("BlobProcessor resetting the back off to {0} seconds", backoffWaitSeconds));
+                }
+                else
+                {
+                    Trace.WriteLine(string.Format("BlobProcessor backing off for {0} seconds", backoffWaitSeconds));
+                    Thread.Sleep(TimeSpan.FromSeconds(backoffWaitSeconds));
+                    backoffWaitSeconds = Math.Min(backoffWaitSeconds * exponent, maxBackoffSeconds);
+                }
             }
         }
 
@@ -35,9 +45,6 @@ namespace BlobProcessor
         {
             // Set the maximum number of concurrent connections
             ServicePointManager.DefaultConnectionLimit = 12;
-
-            // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
 
             bool result = base.OnStart();
 
@@ -50,22 +57,9 @@ namespace BlobProcessor
         {
             Trace.TraceInformation("BlobProcessor is stopping");
 
-            this.cancellationTokenSource.Cancel();
-            this.runCompleteEvent.WaitOne();
-
             base.OnStop();
 
             Trace.TraceInformation("BlobProcessor has stopped");
-        }
-
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                await Task.Delay(1000);
-            }
         }
     }
 }
