@@ -5,5 +5,12 @@
       <Import moduleName="RemoteAccess" />
       <Import moduleName="RemoteForwarder" />
     </Imports>
+    <ConfigurationSettings>
+      <Setting name="Storage.AccountName" />
+      <Setting name="Storage.HbQueue" />
+      <Setting name="Storage.HbContainer" />
+      <Setting name="Storage.ProcessedContainer" />
+      <Setting name="Storage.AccountSAS" />
+    </ConfigurationSettings>
   </WorkerRole>
 </ServiceDefinition>
