@@ -3,7 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "FileHB.BlobProcessor", "FileHB.BlobProcessor\FileHB.BlobProcessor.ccproj", "{68D17D91-E499-4E12-B8DA-DBD138B481B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobProcessor", "BlobProcessor\BlobProcessor.csproj", "{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{74436EF5-BC1E-4B20-AFA5-1B369F73C5ED}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68D17D91-E499-4E12-B8DA-DBD138B481B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D17D91-E499-4E12-B8DA-DBD138B481B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D17D91-E499-4E12-B8DA-DBD138B481B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D17D91-E499-4E12-B8DA-DBD138B481B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="FileHB.BlobProcessor" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="BlobProcessor">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="filehb" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGaAelUAB3+CS9SAFa3EqcUwDQYJKoZIhvcNAQEBBQAEggEAEDAgEhAzLj0M6jEiYihtDzMLmpHaqDMz0DdA6llA6dg0j8YzbivgYWTSD3b28CHEhCrdaeGShqreJay7LZTxBJB/Y1KGcCZTNzyR8HiuFJvfClsq11RPcumUVfn6JUxvvAdG6Tw60aObpSRsa+KrfzOhzgsDzWne6GwaOLn3JxFBIEKkweEZ2M/s/eI/KaZlEoLmUrV4oNTSr/6Zj+8NVRskkXQxJD52U24hLGeWtJUfYSzEAu57UfyMpUDEUiPp38sEisFRtibcymdC0U+xCTjBv4L14fMlSwE8ZIHvq7uNinUT2ZclU/ZHcIlp56nj0aqBbRphqzd5KMUUxi2h5DAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECN6pchvuz3PMgBAwY6pBBfr6kbSzYufPo9/O" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-01-31T23:59:59.0000000+00:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="565E9B2255DFCB8472D954CEA2DB8DF64827984E" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
