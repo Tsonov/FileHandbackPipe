@@ -16,8 +16,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{74436E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureScripts", "AzureScripts", "{C44DC7B5-EFF4-487D-BB08-13CD753FBB78}"
 	ProjectSection(SolutionItems) = preProject
+		Antimalware_config.xml = Antimalware_config.xml
+		InitCloudservice.ps1 = InitCloudservice.ps1
 		InitStorage.ps1 = InitStorage.ps1
 	EndProjectSection
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "FileHB.VirusScanner", "FileHB.VirusScanner\FileHB.VirusScanner.ccproj", "{6628F6AE-0B75-41F1-8236-4D91E95A87CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirusScanner", "VirusScanner\VirusScanner.csproj", "{F23F0AF2-04E1-48A0-A18B-527774D9D74E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirusScanning", "VirusScanning\VirusScanning.csproj", "{ECC097D3-4E93-4B63-A928-EFF7BC75B543}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,18 @@ Global
 		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B975D37-F1C0-4C9B-9851-C92304A2C7F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6628F6AE-0B75-41F1-8236-4D91E95A87CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6628F6AE-0B75-41F1-8236-4D91E95A87CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6628F6AE-0B75-41F1-8236-4D91E95A87CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6628F6AE-0B75-41F1-8236-4D91E95A87CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23F0AF2-04E1-48A0-A18B-527774D9D74E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23F0AF2-04E1-48A0-A18B-527774D9D74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23F0AF2-04E1-48A0-A18B-527774D9D74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23F0AF2-04E1-48A0-A18B-527774D9D74E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC097D3-4E93-4B63-A928-EFF7BC75B543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC097D3-4E93-4B63-A928-EFF7BC75B543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC097D3-4E93-4B63-A928-EFF7BC75B543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC097D3-4E93-4B63-A928-EFF7BC75B543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

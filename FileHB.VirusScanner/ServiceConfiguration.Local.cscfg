@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="FileHB.VirusScanner" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="VirusScanner">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="braintechd" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEE+JIPq5sXaRROx6osm5ZIYwDQYJKoZIhvcNAQEBBQAEggEAMzXwIN9oAACft0Aeakq+xo1i7IbM/gbMvxplSMivD2Sn4lvtDh0YT2kztPEmLewtfER2T8Lg5radAazTsnLkzR0aGPzhXsal2qLfoKsTpfqwwZWAbmjc3B6K/K9fjmrMqNPzP90IxWNwBfIW+uVJvnr0M+rSzJPvXpkkxkdxdT6vR3dRUMzbRSK5van7RBiMY8e2mrheFfunn4nM62LhQaAYsLccJPWpKHUhoyr7D8lQ6jN0or9R5El7osjqL4VgGlqKBM6Kg/TRN48f1+TFT23nsMAy0Na2SeAFvCp1MPf1OB54jyZmbbf76p/VgqpSZ09DGdGpNlkIoUAFOmZxNzAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECNR1kmdlLo3igBAx92DEdBSt9TvyBUl/9JQn" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-01-31T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="0466AB5810591D57DC6C4E047191FD0C3264A3BA" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
