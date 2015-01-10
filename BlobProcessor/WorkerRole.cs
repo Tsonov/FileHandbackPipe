@@ -93,25 +93,49 @@ namespace BlobProcessor
                     var blob = handbackContainer.GetBlockBlobReference(blobName);
                     if (blob.Exists())
                     {
+                        Trace.WriteLine("Blob with name {0} was found, processing", blobName);
+
                         using (var blobStream = blob.OpenRead())
                         {
-                            // Intermediate stream GZip can write to
-                            using (var compressedStream = new MemoryStream())
+                            
+                            Trace.WriteLine("Checking blob for viruses");
+                            bool isInfected;
+                            using (FileScannerClient fileScanner = new FileScannerClient())
                             {
-                                using (var gzipStream = new GZipStream(compressedStream, CompressionLevel.Fastest))
-                                {
-                                    blobStream.CopyTo(gzipStream);
-                                    gzipStream.Flush();
-                                    // Rewind the stream to read from it
-                                    compressedStream.Seek(0, SeekOrigin.Begin);
-
-                                    var compressedBlob = processedContainer.GetBlockBlobReference(blobName);
-                                    // Assume overwrite if it's already there.
-                                    compressedBlob.UploadFromStream(compressedStream);
-                                }
+                                isInfected = fileScanner.TestForViruses(blobStream);
                             }
 
+                            if (isInfected)
+                            {
+                                Trace.TraceError("Blob {0} was infected! Deleting from blob storage and stopping further processing", blobName);
+                            }
+                            else
+                            {
+                                Trace.WriteLine("Blob wasn't infected");
+                                Trace.WriteLine("Compressing blob");
+                                blobStream.Seek(0, SeekOrigin.Begin);
+                                // Intermediate stream GZip can write to
+                                using (var compressedStream = new MemoryStream())
+                                {
+                                    using (var gzipStream = new GZipStream(compressedStream, CompressionLevel.Fastest))
+                                    {
+                                        blobStream.CopyTo(gzipStream);
+                                        gzipStream.Flush();
+                                        // Rewind the stream to read from it
+                                        compressedStream.Seek(0, SeekOrigin.Begin);
+
+                                        Trace.WriteLine("Successfully compressed blob.");
+
+                                        Trace.WriteLine("Uploading blob to processed blobs");
+                                        var compressedBlob = processedContainer.GetBlockBlobReference(blobName);
+                                        // Assume overwrite if it's already there.
+                                        compressedBlob.UploadFromStream(compressedStream);
+                                        Console.WriteLine("Finished processing blob {0}", blobName);
+                                    }
+                                }
+                            }
                         }
+                        Trace.WriteLine("Deleting blob {0}", blobName);
                         // Delete the source blob since we are done with it
                         blob.Delete();
                     }

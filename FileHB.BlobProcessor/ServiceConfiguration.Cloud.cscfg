@@ -12,7 +12,7 @@
       <Setting name="Storage.HbQueue" value="handbackqueue" />
       <Setting name="Storage.HbContainer" value="handback" />
       <Setting name="Storage.ProcessedContainer" value="processedblobs" />
-      <Setting name="Storage.AccountSAS" value="&lt;Set_this_in_portal&gt;" />
+      <Setting name="Storage.AccountSAS" value="&lt;Set_in_portal_manually&gt;" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="565E9B2255DFCB8472D954CEA2DB8DF64827984E" thumbprintAlgorithm="sha1" />
